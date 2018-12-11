@@ -43,7 +43,7 @@ async def ping_afks(mentions, channel, author):
 	while i < len(mentions):
 		j = 0
 		while j < len(afks):
-			if mentions[i] in afks[j].split('§')[0]:
+			if mentions[i].mention in afks[j].split('§')[0]:
 				await channel.send("Bonjour " + author.mention + ", " + afks[j].split('§')[0] + " est actuellent AFK.\n" + 
 				"Il a laissé le message suivant : " + afks[j].split('§')[1])
 				if (len(afks[j].split('§')) > 2):
