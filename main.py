@@ -18,6 +18,7 @@ async def on_message(message):
 	if message.content.startswith("d!") and (message.author != client.user or message.content.startswith("d!afk")):
 		print(message.content)
 		from sigmanager import sigcreate, sigadd, sigsend
+		from afk import set_afk
 		command = message.content.split(" ")[0]
 		command = command.split("!")[1]
 		args = message.content.split(" ")[1:]
@@ -62,5 +63,5 @@ async def on_message(message):
 
 if __name__ == '__main__':
     fd = open("private/token")
-    client.run(json.load(fd))
+    client.run(fd.readlines()[0])
     fd.close()
