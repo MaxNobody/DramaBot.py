@@ -7,7 +7,7 @@ import asyncio
 import logging
 import json
 
-async def set_afk(args, author, channel)
+async def set_afk(args, author, channel):
 	if len(args) < 1:
 		await channel.send("ERREUR!\n" +
 		"```d!afk : Code erreur 1 : Arguments insuffisants\n" + 
