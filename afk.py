@@ -28,7 +28,11 @@ async def set_afk(args, author, channel):
 		file = open("afks.txt", "w")
 	file.close()
 	file = open("afks.txt", "a")
-	file.write(author.mention + "§" + ' '.join(args) + "\n")
+	if "!" in author.mention:
+		id = author.mention.split('!')[1][:-1]
+	else
+		id = author.mention.split('@')[1][:-1]
+	file.write(id + "§" + ' '.join(args) + "\n")
 	await channel.send("Vous êtes à présent considéré afk. Toute personne vous pingant verra le message " + ' '.join(args))
 
 async def ping_afks(mentions, channel, author):
@@ -41,12 +45,10 @@ async def ping_afks(mentions, channel, author):
 		"Ping afk non trouvé. Merci de contacter l'idiot qui m'a programmé pour l'insulter de tout les noms.")
 		return
 	while i < len(mentions):
-		print("BOUH")
 		j = 0
 		while j < len(afks):
-			print("YAH Mentions[i].mention = " + mentions[i].mention + "afks[j].split('§')[0] = " + afks[j].split('§')[0])
-			if mentions[i].mention in afks[j].split('§')[0]:
-				await channel.send("Bonjour " + author.mention + ", " + afks[j].split('§')[0] + " est actuellent AFK.\n" + 
+			if afks[j].split('§')[0] in mentions[i].mention:
+				await channel.send("Bonjour " + author.mention + ", <@" + afks[j].split('§')[0] + "> est actuellent AFK.\n" + 
 				"Il a laissé le message suivant : " + afks[j].split('§')[1])
 				if (len(afks[j].split('§')) > 2):
 					await channel.send("(btw il/elle est con.ne il/elle a mis un § dans son message d'afk du coup ya tout qui s'affiche pas... Pourtant c'est évident que j'ai été codé par un crétin qui allait pas tout afficher.)")
