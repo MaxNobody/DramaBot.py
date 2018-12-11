@@ -62,4 +62,8 @@ async def on_message(message):
 		print("Il y a " + str(len(message.mentions)) + " mentions dans ce message")
 
 
-client.run("NTIxNjI4NDI1NTEzOTkyMTky.Du_Qow.btsespRp5lO-CWaExP4mM6fgAJw")
+
+if __name__ == '__main__':
+    fd = open("private/token")
+    client.run(json.load(fd))
+    fd.close()
