@@ -22,7 +22,7 @@ async def set_afk(args, author, channel):
 		else:
 			id = author.mention.split('@')[1][:-1]
 		while i < len(content):
-			if id in content[i].split('§')[0]:
+			if str(id) in content[i].split('§')[0]:
 				await channel.send("ERREUR!\n" + 
 				"```d!afk : Code erreur 3 : Afk déjà créé\n" + 
 				"Rappel : Pour enlever le mode afk, utilisez d!back```")
@@ -36,7 +36,7 @@ async def set_afk(args, author, channel):
 		id = author.mention.split('!')[1][:-1]
 	else:
 		id = author.mention.split('@')[1][:-1]
-	file.write(id + "§" + ' '.join(args) + "\n")
+	file.write(str(id) + "§" + ' '.join(args) + "\n")
 	await channel.send("Vous êtes à présent considéré afk. Toute personne vous pingant verra le message " + ' '.join(args))
 
 async def ping_afks(mentions, channel, author):
@@ -72,7 +72,7 @@ async def rem_afk(id, channel):
 	i = 0
 	found = bool(False)
 	while i < len(afks):
-		if id in afks[i].split('§')[0]:
+		if str(id) in afks[i].split('§')[0]:
 			await channel.send("Bon retour à toi, <@" + str(id) + ">!")
 			found = bool(True)
 		else:
