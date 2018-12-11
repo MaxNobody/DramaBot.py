@@ -30,7 +30,7 @@ async def set_afk(args, author, channel):
 	file = open("afks.txt", "a")
 	if "!" in author.mention:
 		id = author.mention.split('!')[1][:-1]
-	else
+	else:
 		id = author.mention.split('@')[1][:-1]
 	file.write(id + "§" + ' '.join(args) + "\n")
 	await channel.send("Vous êtes à présent considéré afk. Toute personne vous pingant verra le message " + ' '.join(args))
