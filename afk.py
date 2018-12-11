@@ -28,7 +28,7 @@ async def set_afk(args, author, channel):
 		file = open("afks.txt", "w")
 	file.close()
 	file = open("afks.txt", "a")
-	file.write("<@" + str(author.id) + ">§" + ' '.join(args) + "\n")
+	file.write(author.mention + "§" + ' '.join(args) + "\n")
 	await channel.send("Vous êtes à présent considéré afk. Toute personne vous pingant verra le message " + ' '.join(args))
 
 async def ping_afks(mentions, channel, author):
