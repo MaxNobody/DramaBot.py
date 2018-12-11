@@ -10,12 +10,12 @@ async def sigcreate(args, channel):
 	if len(args) != 2:
 		await channel.send("ERREUR!\n" +
 		"```d!sigcreate : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
-		"Rappel : d!sigcreate NomJeu NomSignal (sans espaces!)```")
+		"Rappel : d!sigcreate NomJeu NomSignal (sans espaces!)```", delete_after=10)
 		return
 	if "@" in args[0] or "§" in args[0] or "@" in args[1] or "§" in args[1]:
 		await channel.send("ERREUR!\n" + 
 		"```d!sigcreate : Code erreur 2 : Caractères interdits\n" + 
-		"Les caractères § et @ ne sont pas autorisés```")
+		"Les caractères § et @ ne sont pas autorisés```", delete_after=10)
 	try:
 		file = open("signals.txt", "r+")
 		content = file.readlines()
@@ -23,7 +23,7 @@ async def sigcreate(args, channel):
 		while i < len(content):
 			if args[1] in content[i].split('§')[1]:
 				await channel.send("ERREUR!\n" + 
-				"```d!sigcreate : Code erreur 3 : Signal déjà créé```")
+				"```d!sigcreate : Code erreur 3 : Signal déjà créé```", delete_after=10)
 				return
 			i = i + 1
 	except FileNotFoundError:
@@ -34,11 +34,11 @@ async def sigadd(args, channel):
 	if len(args) != 2:
 		await channel.send("ERREUR!\n" +
 		"```d!sigadd : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
-		"Rappel : d!sigadd NomSignal Mention (sans espaces!)```")
+		"Rappel : d!sigadd NomSignal Mention (sans espaces!)```", delete_after=10)
 		return
 	if not args[1].startswith("<@") or not args[1].endswith(">"):
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 2 : Second argument n'est pas la mention d'un joueur```")
+		"```d!sigadd : Code erreur 2 : Second argument n'est pas la mention d'un joueur```", delete_after=10)
 		return
 	try:
 		file = open("signals.txt", "r+")
@@ -54,17 +54,17 @@ async def sigadd(args, channel):
 				file.write(content[i])
 			i = i + 1
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 3 : Partie non trouvée```")
+		"```d!sigadd : Code erreur 3 : Partie non trouvée```", delete_after=10)
 	except FileNotFoundError:
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```")
+		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```", delete_after=10)
 		return
 
 async def sigsend(args, channel):
 	if len(args) != 1:
 		await channel.send("ERREUR!\n" + 
 		"```d!sigsend : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
-		"Rappel : d!sigsend NomJeu```")
+		"Rappel : d!sigsend NomJeu```", delete_after=10)
 	try:
 		file = open("signals.txt", "r")
 		content = file.readlines()
@@ -86,8 +86,8 @@ async def sigsend(args, channel):
 				return
 			i = i + 1
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 3 : Partie non trouvée```")
+		"```d!sigadd : Code erreur 3 : Partie non trouvée```", delete_after=10)
 	except FileNotFoundError:
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```")
+		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```", delete_after=10)
 		return
