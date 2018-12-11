@@ -33,7 +33,7 @@ async def on_message(message):
 		elif command == "sigremove":
 			print(command)
 		elif command == "afk":
-			set_afk(args, message.author, message.channel)
+			await set_afk(args, message.author, message.channel)
 		elif command == "back":
 			print(command)
 			#Marks user as not-afk
