@@ -59,7 +59,7 @@ async def ping_afks(mentions, channel, author):
 			j = j + 1
 		i = i + 1
 
-async def rem_afk(id, channel)
+async def rem_afk(id, channel):
 	try: 
 		file = open("afks.txt", "r")
 	except FileNotFoundError:
