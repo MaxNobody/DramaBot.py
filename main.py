@@ -18,7 +18,7 @@ async def on_message(message):
 	if message.content.startswith("d!") and (message.author != client.user or message.content.startswith("d!afk")):
 		print(message.content)
 		from sigmanager import sigcreate, sigadd, sigsend
-		from afk import set_afk
+		from afk import set_afk, rem_afk
 		command = message.content.split(" ")[0]
 		command = command.split("!")[1]
 		args = message.content.split(" ")[1:]
