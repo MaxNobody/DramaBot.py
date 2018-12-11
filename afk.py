@@ -41,8 +41,10 @@ async def ping_afks(mentions, channel, author):
 		"Ping afk non trouvé. Merci de contacter l'idiot qui m'a programmé pour l'insulter de tout les noms.")
 		return
 	while i < len(mentions):
+		print("BOUH")
 		j = 0
 		while j < len(afks):
+			print("YAH Mentions[i].mention = " + mentions[i].mention + "afks[j].split('§')[0] = " + afks[j].split('§')[0])
 			if mentions[i].mention in afks[j].split('§')[0]:
 				await channel.send("Bonjour " + author.mention + ", " + afks[j].split('§')[0] + " est actuellent AFK.\n" + 
 				"Il a laissé le message suivant : " + afks[j].split('§')[1])
