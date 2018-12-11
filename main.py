@@ -59,7 +59,8 @@ async def on_message(message):
 			await client.logout()
 			await client.close()
 	elif len(message.mentions) != 0 and message.author != client.user:
-		print("Il y a " + str(len(message.mentions)) + " mentions dans ce message")
+		from afk import ping_afks
+		await ping_afks(message.mentions, message.channel, message.author)
 
 if __name__ == '__main__':
     fd = open("private/token")

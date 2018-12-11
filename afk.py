@@ -29,3 +29,23 @@ async def set_afk(args, author, channel):
 	file = open("afks.txt", "a")
 	file.write("<@" + str(author.id) + ">§" + ' '.join(args))
 	await channel.send("Vous êtes à présent considéré afk. Toute personne vous pingant verra le message " + ' '.join(args))
+
+async def ping_afk(mentions, channel, author):
+	i = 0
+	try: 
+		file = open("afks.txt", "r")
+		afks = file.readlines()
+	except FileNotFoundError: 
+		await channel.send("ERREUR!\n" + 
+		"Ping afk non trouvé. Merci de contacter l'idiot qui m'a programmé pour l'insulter de tout les noms.")
+		return
+	while i < len(mentions):
+		j = 0
+		while j < len(afks):
+			if mentions[i] in afks[j].split('§')[0]:
+				await channel.send("Bonjour " + author.mention + ", " + afks[j].split('§')[0] + " est actuellent AFK.\n" + 
+				"Il a laissé le message suivant : " + afks[j].split('§')[1])
+				if (len(afks[j].split('§')) > 2):
+					await channel.send("(btw il/elle est con.ne il/elle a mis un § dans son message d'afk du coup ya tout qui s'affiche pas... Pourtant c'est évident que j'ai été codé par un crétin qui allait pas tout afficher.)")
+			j = j + 1
+		i = i + 1
