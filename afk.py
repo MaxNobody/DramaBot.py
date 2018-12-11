@@ -13,15 +13,18 @@ async def set_afk(args, author, channel):
 		"```d!afk : Code erreur 1 : Arguments insuffisants\n" + 
 		"Rappel : d!afk <message>```")
 		return
-	file = open("afks.txt", "r")
-	content = file.readlines()
-	i = 0
-	while i < len(content):
-		if author.name in content[i].split('§')[0]:
-			await channel.send("ERREUR!\n" + 
-			"```d!afk : Code erreur 3 : Afk déjà créé\n" + 
-			"Rappel : Pour enlever le mode afk, utilisez d!back```")
-		i = i + 1
+	try: 
+		file = open("afks.txt", "r")
+		content = file.readlines()
+		i = 0
+		while i < len(content):
+			if author.name in content[i].split('§')[0]:
+				await channel.send("ERREUR!\n" + 
+				"```d!afk : Code erreur 3 : Afk déjà créé\n" + 
+				"Rappel : Pour enlever le mode afk, utilisez d!back```")
+			i = i + 1
+	except FileNotFoundError:
+		file = open("afks.txt", "w")
 	file.close()
 	file = open("afks.txt", "a")
 	file.write("<@" + author.id + ">§" + ' '.join(args))
