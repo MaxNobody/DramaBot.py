@@ -35,8 +35,7 @@ async def on_message(message):
 		elif command == "afk":
 			await set_afk(args, message.author, message.channel)
 		elif command == "back":
-			print(command)
-			#Marks user as not-afk
+			await rem_afk(message.author.id, message.channel)
 		elif command == "roll":
 			print(command)
 			#Roll the dice noted.
