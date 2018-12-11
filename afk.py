@@ -17,8 +17,12 @@ async def set_afk(args, author, channel):
 		file = open("afks.txt", "r")
 		content = file.readlines()
 		i = 0
+		if "!" in author.mention:
+			id = author.mention.split('!')[1][:-1]
+		else:
+			id = author.mention.split('@')[1][:-1]
 		while i < len(content):
-			if author.mention in content[i].split('§')[0]:
+			if id in content[i].split('§')[0]:
 				await channel.send("ERREUR!\n" + 
 				"```d!afk : Code erreur 3 : Afk déjà créé\n" + 
 				"Rappel : Pour enlever le mode afk, utilisez d!back```")
