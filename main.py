@@ -57,10 +57,11 @@ async def on_message(message):
 		elif command == "disconnect":
 			await client.logout()
 			await client.close()
+		await message.delete()
 	elif len(message.mentions) != 0 and message.author != client.user:
 		from afk import ping_afks
 		await ping_afks(message.mentions, message.channel, message.author)
-	await message.delete()
+	
 
 if __name__ == '__main__':
     fd = open("private/token")
