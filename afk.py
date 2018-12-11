@@ -13,7 +13,6 @@ async def set_afk(args, author, channel):
 		"```d!afk : Code erreur 1 : Arguments insuffisants\n" + 
 		"Rappel : d!afk <message>```")
 		return
-	if ("@" in ):
 	file = open("afks.txt", "r")
 	content = file.readlines()
 	i = 0
