@@ -18,6 +18,7 @@ async def on_message(message):
 		print(message.content)
 		from sigmanager import sigcreate, sigadd, sigsend
 		from afk import set_afk, rem_afk
+		from roll import roll
 		command = message.content.split(" ")[0]
 		command = command.split("!")[1]
 		args = message.content.split(" ")[1:]
@@ -31,6 +32,7 @@ async def on_message(message):
 			await sigsend(args, message.channel)
 		elif command == "sigremove":
 			print(command)
+			#Remove a signal
 		elif command == "afk":
 			await set_afk(args, message.author, message.channel)
 		elif command == "back":
