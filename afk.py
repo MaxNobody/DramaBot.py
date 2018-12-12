@@ -5,7 +5,6 @@ import os
 import discord
 import asyncio
 import logging
-import json
 
 async def set_afk(args, author, channel):
 	if len(args) < 1:
@@ -73,7 +72,7 @@ async def rem_afk(id, channel):
 	found = bool(False)
 	while i < len(afks):
 		if str(id) in afks[i].split('§')[0]:
-			await channel.send("Bon retour à toi, <@" + str(id) + ">!")
+			await channel.send("Bon retour à toi, <@" + str(id) + ">!", delete_after=20)
 			found = bool(True)
 		else:
 			fd.write(afks[i])

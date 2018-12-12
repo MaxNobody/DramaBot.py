@@ -5,7 +5,6 @@ import os
 import discord
 import asyncio
 import logging
-import json
 
 client = discord.Client()
 
