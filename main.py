@@ -36,8 +36,7 @@ async def on_message(message):
 		elif command == "back":
 			await rem_afk(message.author.id, message.channel)
 		elif command == "roll":
-			print(command)
-			#Roll the dice noted.
+			roll(args, message.channel)
 		elif command == "lmgtfy":
 			print(command)
 			#Returns a lmgtfy query

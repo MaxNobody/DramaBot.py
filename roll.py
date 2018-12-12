@@ -49,6 +49,7 @@ async def roll(args, channel):
 			j = j + 1
 			if (j < rolls):
 				message = message + " "
+		subtotal = subtotal + bonus
 		total = total + subtotal
 		message = message +  "\n"
 		i = i + 1
