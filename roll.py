@@ -8,7 +8,7 @@ import logging
 import random
 
 async def roll(args, channel):
-	if len(args) < 1
+	if len(args) < 1:
 		await channel.send("ERREUR!\n" + 
 		"```d!roll : Code Erreur 1 : Nombre d'argument insuffisant" + 
 		"Rappel : d!roll <nombre de dés>d<nombre de faces>[<+/-bonus>] avec différents dés séparés par des espaces\n" + 
