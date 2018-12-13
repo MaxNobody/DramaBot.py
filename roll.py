@@ -16,7 +16,7 @@ async def roll(args, channel):
 		return
 	i = 0
 	total = 0
-	message = ""
+	message = "Lancers de dés : \n"
 	while i < len(args):
 		bonus = 0
 		rolls = 0
@@ -41,7 +41,7 @@ async def roll(args, channel):
 		rolls = int(args[i].split("d")[0])
 		faces = int(args[i].split("d")[1])
 		j = 0
-		message = message + "Lancer n°" + str(i) + " : "
+		message = message + "Lancer n°" + str(i) + " (" + rolls + "d" + "faces" + ("+" + str(bonus) if bonus > 0 else (str(bonus) if bonus < 0 else "")) + ") : "
 		while (j < rolls):
 			rand = random.randint(1, faces)
 			subtotal = subtotal + rand
@@ -51,6 +51,7 @@ async def roll(args, channel):
 				message = message + " "
 		subtotal = subtotal + bonus
 		total = total + subtotal
-		message = message +  "\n"
+		message = message +  " (Total = )" + str(subtotal) + "\n"
 		i = i + 1
+	message = message + "Score final : " + str(total)
 	await channel.send(message)
