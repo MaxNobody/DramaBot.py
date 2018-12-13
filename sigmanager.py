@@ -92,7 +92,7 @@ async def sigsend(args, channel):
 		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```", delete_after=10)
 		return
 
-async def sigremove(args, channel)
+async def sigremove(args, channel):
 	if (len(args) != 1)
 		await channel.send("ERREUR!\n" + 
 		"```d!sigremove : Code erreur 1 : Nombre d'arguments ne correspondant pas\n" + 
@@ -114,7 +114,7 @@ async def sigremove(args, channel)
 			i = i + 1
 		if not found:
 			await channel.send("ERREUR!\n" + 
-			"```d!back : Code erreur 2 : Le signal n'a pas été trouvé dans le fichier. ```", delete_after=10)
+			"```d!back : Code erreur 2 : Le signal n'a pas été trouvé dans le fichier.```", delete_after=10)
 	except FileNotFoundError: 
 		await channel.send("ERREUR!\n" + 
 		"```d!sigremove : Code erreur 3 : Fichier manquant. Contactez l'abruti qui m'a codé.```", delete_after=10)

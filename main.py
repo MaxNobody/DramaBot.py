@@ -31,8 +31,7 @@ async def on_message(message):
 		elif command == "sigsend":
 			await sigsend(args, message.channel)
 		elif command == "sigremove":
-			print(command)
-			#Remove a signal
+			await sigremove(args, message.channel)
 		elif command == "afk":
 			await set_afk(args, message.author, message.channel)
 		elif command == "back":
