@@ -31,14 +31,15 @@ async def sigcreate(args, channel):
 	file.write(args[0] + "§" + args[1] + "§\n")
 
 async def sigadd(args, channel):
-	if len(args) != 2:
+	if len(args) < 2:
 		await channel.send("ERREUR!\n" +
 		"```d!sigadd : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
-		"Rappel : d!sigadd NomSignal Mention (sans espaces!)```", delete_after=10)
+		"Rappel : d!sigadd NomSignal Nom du joueur```", delete_after=10)
 		return
-	if not args[1].startswith("<@") or not args[1].endswith(">"):
+	member = get_member_named(' '.join(args[1:]))
+	if member == None:
 		await channel.send("ERREUR!\n" + 
-		"```d!sigadd : Code erreur 2 : Second argument n'est pas la mention d'un joueur```", delete_after=10)
+		"```d!sigadd : Code erreur 2 : Le nom du joueur n'a pas été trouvé```")
 		return
 	try:
 		file = open("signals.txt", "r+")
@@ -48,7 +49,7 @@ async def sigadd(args, channel):
 		i = 0
 		while (i < len(content)):
 			if args[0] in content[i]:
-				file.write(content[i][:-1] + args[1] + "§\n")
+				file.write(content[i][:-1] + member.mention + "§\n")
 				return
 			else:
 				file.write(content[i])
