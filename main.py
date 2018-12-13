@@ -37,7 +37,7 @@ async def on_message(message):
 		elif command == "back":
 			await rem_afk(message.author.id, message.channel)
 		elif command == "roll":
-			roll(args, message.channel)
+			await roll(args, message.channel)
 		elif command == "lmgtfy":
 			print(command)
 			#Returns a lmgtfy query
