@@ -19,7 +19,6 @@ async def on_message(message):
 		from sigmanager import sigcreate, sigadd, sigsend, sigremove
 		from afk import set_afk, rem_afk
 		from roll import roll
-		from lmgtfy import lmgtfy
 		command = message.content.split(" ")[0]
 		command = command.split("!")[1]
 		args = message.content.split(" ")[1:]
