@@ -36,7 +36,7 @@ async def sigadd(args, channel):
 		"```d!sigadd : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
 		"Rappel : d!sigadd NomSignal Nom du joueur```", delete_after=10)
 		return
-	member = get_member_named(' '.join(args[1:]))
+	member = channel.server.get_member_named(' '.join(args[1:]))
 	if member == None:
 		await channel.send("ERREUR!\n" + 
 		"```d!sigadd : Code erreur 2 : Le nom du joueur n'a pas été trouvé```")
