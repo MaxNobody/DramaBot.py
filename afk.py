@@ -54,7 +54,7 @@ async def ping_afks(mentions, channel, author):
 				await channel.send("Bonjour " + author.mention + ", <@" + afks[j].split('§')[0] + "> est actuellent AFK.\n" + 
 				"Il a laissé le message suivant : " + afks[j].split('§')[1], delete_after=10)
 				if (len(afks[j].split('§')) > 2):
-					await channel.send("(btw il/elle est con.ne il/elle a mis un § dans son message d'afk du coup ya tout qui s'affiche pas... Pourtant c'est évident que j'ai été codé par un crétin qui allait pas tout afficher.)", delete_after=10)
+					await channel.send("(btw il/elle est con.ne il/elle a mis un § dans son message d'afk du coup ya pas tout qui s'affiche... Pourtant c'est évident que j'ai été codé par un crétin qui allait pas tout afficher.)", delete_after=10)
 			j = j + 1
 		i = i + 1
 
@@ -72,10 +72,10 @@ async def rem_afk(id, channel):
 	found = bool(False)
 	while i < len(afks):
 		if str(id) in afks[i].split('§')[0]:
-			await channel.send("Bon retour à toi, <@" + str(id) + ">!", delete_after=20)
+			await channel.send("Bon retour à toi, <@" + str(id) + ">!", delete_after=10)
 			found = bool(True)
 		else:
-			fd.write(afks[i])
+			file.write(afks[i])
 		i = i + 1
 	if not found:
 		await channel.send("ERREUR!\n" + 

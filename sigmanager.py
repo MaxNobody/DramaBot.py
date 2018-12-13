@@ -64,7 +64,7 @@ async def sigsend(args, channel):
 	if len(args) != 1:
 		await channel.send("ERREUR!\n" + 
 		"```d!sigsend : Code erreur 1 : Nombre d'argument ne correspondant pas\n" + 
-		"Rappel : d!sigsend NomJeu```", delete_after=10)
+		"Rappel : d!sigsend NomPartie```", delete_after=10)
 	try:
 		file = open("signals.txt", "r")
 		content = file.readlines()
@@ -91,3 +91,30 @@ async def sigsend(args, channel):
 		await channel.send("ERREUR!\n" + 
 		"```d!sigadd : Code erreur 4 : Fichier manquant. Contactez le con qui m'a codé.```", delete_after=10)
 		return
+
+async def sigremove(args, channel)
+	if (len(args) != 1)
+		await channel.send("ERREUR!\n" + 
+		"```d!sigremove : Code erreur 1 : Nombre d'arguments ne correspondant pas\n" + 
+		"Rappel : d!sigremove NomPartie```", delete_after=10)
+		return
+	try: 
+		file = open("signals.txt", "r")
+		content = file.readlines()
+		file.close()
+		file = open("signals.txt", "w")
+		i = 0
+		found = bool(False)
+		while i < len(content):
+			if content[i].split('§')[1] in args[0]:
+				await channel.send("Signal effacé", delete_after=10)
+				found = bool(True)
+			else:
+				file.write(content[i])
+			i = i + 1
+		if not found:
+			await channel.send("ERREUR!\n" + 
+			"```d!back : Code erreur 2 : Le signal n'a pas été trouvé dans le fichier. ```", delete_after=10)
+	except FileNotFoundError: 
+		await channel.send("ERREUR!\n" + 
+		"```d!sigremove : Code erreur 3 : Fichier manquant. Contactez l'abruti qui m'a codé.```", delete_after=10)
