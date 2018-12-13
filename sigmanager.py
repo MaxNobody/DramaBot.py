@@ -93,7 +93,7 @@ async def sigsend(args, channel):
 		return
 
 async def sigremove(args, channel):
-	if (len(args) != 1)
+	if (len(args) != 1):
 		await channel.send("ERREUR!\n" + 
 		"```d!sigremove : Code erreur 1 : Nombre d'arguments ne correspondant pas\n" + 
 		"Rappel : d!sigremove NomPartie```", delete_after=10)
