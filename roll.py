@@ -45,7 +45,7 @@ async def roll(args, channel):
 		while (j < rolls):
 			rand = random.randint(1, faces)
 			subtotal = subtotal + rand
-			message = message + rand
+			message = message + str(rand)
 			j = j + 1
 			if (j < rolls):
 				message = message + " "
