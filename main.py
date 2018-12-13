@@ -16,7 +16,7 @@ async def on_ready():
 async def on_message(message):
 	if message.content.startswith("d!") and (message.author != client.user or message.content.startswith("d!afk")):
 		print(message.content)
-		from sigmanager import sigcreate, sigadd, sigsend
+		from sigmanager import sigcreate, sigadd, sigsend, sigremove
 		from afk import set_afk, rem_afk
 		from roll import roll
 		command = message.content.split(" ")[0]
