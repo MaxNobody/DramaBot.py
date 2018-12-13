@@ -41,7 +41,7 @@ async def roll(args, channel):
 		rolls = int(args[i].split("d")[0])
 		faces = int(args[i].split("d")[1])
 		j = 0
-		message = message + "Lancer n°" + str(i) + " (" + rolls + "d" + "faces" + ("+" + str(bonus) if bonus > 0 else (str(bonus) if bonus < 0 else "")) + ") : "
+		message = message + "Lancer n°" + str(i) + " (" + str(rolls) + "d" + faces + ("+" + str(bonus) if bonus > 0 else (str(bonus) if bonus < 0 else "")) + ") : "
 		while (j < rolls):
 			rand = random.randint(1, faces)
 			subtotal = subtotal + rand
