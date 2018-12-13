@@ -19,6 +19,7 @@ async def on_message(message):
 		from sigmanager import sigcreate, sigadd, sigsend, sigremove
 		from afk import set_afk, rem_afk
 		from roll import roll
+		from lmgtfy import lmgtfy
 		command = message.content.split(" ")[0]
 		command = command.split("!")[1]
 		args = message.content.split(" ")[1:]
@@ -41,9 +42,6 @@ async def on_message(message):
 		elif command == "lmgtfy":
 			print(command)
 			#Returns a lmgtfy query
-		elif command == "google":
-			print(command)
-			#returns a google query
 		elif command == "linksave":
 			print(command)
 			#saves a link to be retrieved later
@@ -54,6 +52,7 @@ async def on_message(message):
 			print(command)
 			#Returns the afkmeter of the member or of argument summonner.
 		elif command == "disconnect":
+			await message.delete()
 			await client.logout()
 			await client.close()
 		await message.delete()
