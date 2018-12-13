@@ -51,7 +51,7 @@ async def roll(args, channel):
 				message = message + " "
 		subtotal = subtotal + bonus
 		total = total + subtotal
-		message = message +  " (Total = )" + str(subtotal) + "\n"
+		message = message +  " (Total = " + str(subtotal) + ")\n"
 		i = i + 1
 	message = message + "Score final : " + str(total)
 	await channel.send(message)
